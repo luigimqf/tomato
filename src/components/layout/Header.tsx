@@ -1,3 +1,4 @@
+import { Suspense } from "react"
 import { Navigation } from "../navigation"
 import { MobileNavigation } from "../navigation/Mobile"
 import { ModeToggle } from "../toggle-mode"
@@ -11,8 +12,12 @@ export const Header = () => {
         DR.LORRAYNE REIS
       </h1>
 
-      <Navigation />
-      <MobileNavigation />
+      <Suspense fallback={<>loading...</>}>
+        <Navigation />
+      </Suspense>
+      <Suspense fallback={<>loading...</>}>
+        <MobileNavigation />
+      </Suspense>
     </header>
   )
 }
